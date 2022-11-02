@@ -95,6 +95,29 @@ const users: User[] = ref([
       },
     ],
   },
+  {
+    name: '视频',
+    avatar: 'https://api.iconify.design/twemoji:film-projector.svg',
+    desc: '常看的直播视频、电影',
+    link: '',
+    links: [
+      {
+        name: '斗鱼直播',
+        icon: 'https://raw.githubusercontent.com/chendj89/icons/main/douyu.png',
+        link: 'https://www.douyu.com/directory/myFollow',
+      },
+      {
+        name: '虎牙直播',
+        icon: 'https://raw.githubusercontent.com/chendj89/icons/main/huya.png',
+        link: 'https://www.huya.com/myfollow',
+      },
+      {
+        name: '茶杯狐',
+        icon: 'https://raw.githubusercontent.com/chendj89/icons/main/cupfox.png',
+        link: 'https://cupfox.app/',
+      },
+    ],
+  },
 ]);
 const go = (item) => {
   if (item.link) {
@@ -170,6 +193,7 @@ $img: 48px;
   &-links {
     text-align: left;
     padding-top: $space;
+    height: 40px;
     &-item {
       display: inline-flex;
       margin-right: $space;
