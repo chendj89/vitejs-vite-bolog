@@ -89,6 +89,11 @@ const users: User[] = ref([
         link: 'https://yarnpkg.com/',
       },
       {
+        name: 'cnpm',
+        icon: 'https://raw.githubusercontent.com/chendj89/icons/main/cnpm.png',
+        link: 'https://www.npmmirror.com/',
+      },
+      {
         name: 'volta',
         icon: 'https://api.iconify.design/emojione-v1:high-voltage.svg',
         link: 'https://volta.sh/',
@@ -97,7 +102,7 @@ const users: User[] = ref([
   },
   {
     name: '视频',
-    avatar: 'https://api.iconify.design/twemoji:film-projector.svg',
+    avatar: 'https://api.iconify.design/fluent-emoji-flat:cinema.svg',
     desc: '常看的直播视频、电影',
     link: '',
     links: [
@@ -115,6 +120,72 @@ const users: User[] = ref([
         name: '茶杯狐',
         icon: 'https://raw.githubusercontent.com/chendj89/icons/main/cupfox.png',
         link: 'https://cupfox.app/',
+      },
+    ],
+  },
+  {
+    name: 'Element',
+    avatar: 'https://api.iconify.design/noto:compass.svg',
+    desc: '常用UI库',
+    link: '',
+    links: [
+      {
+        name: 'Element',
+        icon: 'https://api.iconify.design/logos:element.svg',
+        link: 'ttps://element.eleme.cn/#/zh-CN',
+      },
+      {
+        name: 'ElementPlus',
+        icon: 'https://api.iconify.design/ep:element-plus.svg',
+        link: 'https://element-plus.gitee.io/zh-CN/',
+      },
+      {
+        name: 'ECharts',
+        icon: 'https://api.iconify.design/simple-icons:apacheecharts.svg',
+        link: 'https://echarts.apache.org/zh/index.html',
+      },
+      {
+        name: 'Greensock',
+        icon: 'https://api.iconify.design/fluent-emoji:socks.svg',
+        link: 'https://greensock.com/',
+      },
+      {
+        name: 'Bootstrap',
+        icon: 'https://cdn.jsdelivr.net/npm/@bootcss/www.bootcss.com@0.0.63/dist/ico/favicon.ico',
+        link: 'https://www.bootcss.com/',
+      },
+    ],
+  },
+  {
+    name: '开发工具',
+    avatar: 'https://api.iconify.design/noto:hammer-and-wrench.svg',
+    desc: '常用开发工具',
+    link: '',
+    links: [
+      {
+        name: '翻译',
+        icon: 'https://api.iconify.design/dashicons:translation.svg',
+        link: 'https://fanyi.youdao.com/',
+      },
+      {
+        name: '正则',
+        icon: 'https://api.iconify.design/arcticons:regex.svg',
+        link: 'https://regex101.com/',
+      },
+      {
+        name: 'Codepen',
+        icon: 'https://api.iconify.design/logos:codepen-icon.svg',
+        link: 'https://codepen.io/',
+      },
+      {
+        name: 'stackblitz',
+        icon: 'https://api.iconify.design/logos:stackblitz-icon.svg',
+        link: 'https://stackblitz.com/',
+      },
+      {
+        name: 'codesandbox',
+        icon: 'https://api.iconify.design/logos:codesandbox-icon.svg',
+        link: 'https://codesandbox.io/',
       },
     ],
   },
@@ -144,7 +215,7 @@ const go = (item) => {
         :key="item.name"
         @click="go(item)"
       >
-        <img class="card-links-icon" :src="item.icon" alt="" />
+        <img class="card-links-icon" :src="item.icon" :alt="item.name" />
       </div>
     </div>
   </div>
