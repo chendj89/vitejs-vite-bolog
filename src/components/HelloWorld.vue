@@ -253,10 +253,11 @@ const go = (item) => {
     </div>
     <div class="card-links">
       <div
-        class="card-links-item"
         v-for="item in user.links"
         :key="item.name"
         @click="go(item)"
+        class="card-links-item"
+        :class="{ 'card-links-items': user.links.length > 12 }"
       >
         <img class="card-links-icon" :src="item.icon" :title="item.name" />
       </div>
@@ -329,6 +330,18 @@ $img: 48px;
     &-icon {
       width: $img * 0.5;
       height: $img * 0.5;
+    }
+    $size: 0.5;
+    &-items {
+      width: $img * $size;
+      height: $img * $size;
+      min-width: $img * $size;
+      min-height: $img * $size;
+      font-size: $img * $size;
+    }
+    &-items &-icon {
+      width: $img * $size * 0.75;
+      height: $img * $size * 0.75;
     }
   }
 }
