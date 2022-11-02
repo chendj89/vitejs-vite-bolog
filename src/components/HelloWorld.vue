@@ -187,6 +187,11 @@ const users: User[] = ref([
         icon: 'https://api.iconify.design/logos:codesandbox-icon.svg',
         link: 'https://codesandbox.io/',
       },
+      {
+        name: 'Deno',
+        icon: 'https://www.denojs.cn/img/favicon.ico',
+        link: 'https://www.denojs.cn/',
+      },
     ],
   },
 ]);
@@ -215,7 +220,7 @@ const go = (item) => {
         :key="item.name"
         @click="go(item)"
       >
-        <img class="card-links-icon" :src="item.icon" :alt="item.name" />
+        <img class="card-links-icon" :src="item.icon" :title="item.name" />
       </div>
     </div>
   </div>
