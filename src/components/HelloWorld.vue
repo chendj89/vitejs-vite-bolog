@@ -194,6 +194,24 @@ const users: User[] = ref([
       },
     ],
   },
+  {
+    name: '其他',
+    avatar: 'https://api.iconify.design/fluent-emoji-flat:slot-machine.svg',
+    desc: '没有被分类的',
+    link: '',
+    links: [
+      {
+        name: 'Emoji',
+        icon: 'https://emojixd.com/favicon.ico',
+        link: 'https://emojixd.com/',
+      },
+      {
+        name: 'Yikm',
+        icon: 'https://raw.githubusercontent.com/chendj89/icons/main/Marie.png',
+        link: 'https://www.yikm.net/',
+      },
+    ],
+  },
 ]);
 const go = (item) => {
   if (item.link) {
@@ -264,6 +282,7 @@ $img: 48px;
       line-height: 20px;
       word-break: break-all;
       color: #777;
+      height: 40px;
     }
   }
   &-links {
