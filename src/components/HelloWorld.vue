@@ -47,8 +47,8 @@ const users: User[] = ref([
       },
       {
         name: 'bilibili',
-        icon: 'https://api.iconify.design/ri:bilibili-line.svg',
-        link: 'https://www.bilibili.com/',
+        icon: 'https://www.bilibili.com/favicon.ico',
+        link: 'https://space.bilibili.com/668380',
       },
       {
         name: 'icons',
@@ -169,7 +169,7 @@ const users: User[] = ref([
       },
       {
         name: '正则',
-        icon: 'https://api.iconify.design/arcticons:regex.svg',
+        icon: 'https://regex101.com/static/assets/icon-32.png',
         link: 'https://regex101.com/',
       },
       {
@@ -200,6 +200,26 @@ const users: User[] = ref([
     desc: '没有被分类的',
     link: '',
     links: [
+      {
+        name: '掘金',
+        icon: 'https://lf3-cdn-tos.bytescm.com/obj/static/xitu_juejin_web//static/favicons/favicon-32x32.png',
+        link: 'https://juejin.cn/pins',
+      },
+      {
+        name: '微博',
+        icon: 'https://weibo.com/favicon.ico',
+        link: 'https://weibo.com/u/5963931367/home?wvr=5',
+      },
+      {
+        name: '知乎',
+        icon: 'https://api.iconify.design/ant-design:zhihu-outlined.svg',
+        link: 'https://www.zhihu.com/hot',
+      },
+      {
+        name: 'bilibili',
+        icon: 'https://www.bilibili.com/favicon.ico',
+        link: 'https://www.bilibili.com/',
+      },
       {
         name: 'Emoji',
         icon: 'https://emojixd.com/favicon.ico',
