@@ -72,6 +72,29 @@ const users: User[] = ref([
       },
     ],
   },
+  {
+    name: 'Node',
+    avatar: 'https://api.iconify.design/logos:nodejs.svg',
+    desc: 'Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行时。',
+    link: 'http://nodejs.cn/',
+    links: [
+      {
+        name: 'npm',
+        icon: 'https://api.iconify.design/vscode-icons:file-type-npm.svg',
+        link: 'https://www.npmjs.com/',
+      },
+      {
+        name: 'yarn',
+        icon: 'https://api.iconify.design/vscode-icons:file-type-yarn.svg',
+        link: 'https://yarnpkg.com/',
+      },
+      {
+        name: 'volta',
+        icon: 'https://api.iconify.design/emojione-v1:high-voltage.svg',
+        link: 'https://volta.sh/',
+      },
+    ],
+  },
 ]);
 const go = (item) => {
   if (item.link) {
