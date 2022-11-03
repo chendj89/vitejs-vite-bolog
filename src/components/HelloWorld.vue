@@ -20,7 +20,7 @@ const users: User[] = ref([
       {
         name: 'vue3',
         icon: 'https://api.iconify.design/logos:vue.svg',
-        link: 'https://www.bilibili.com/',
+        link: 'https://cn.vuejs.org/',
       },
       {
         name: 'vite',
@@ -37,7 +37,7 @@ const users: User[] = ref([
   {
     name: 'Anthony Fu',
     avatar: 'https://avatars.githubusercontent.com/u/11247099?v=4',
-    desc: 'VUE和VITE核心成员，也是VueUse、Icons几个开源项目的作者。',
+    desc: 'VUE和VITE核心成员、Icons、unplugin等开源项目的作者。',
     link: 'https://antfu.me/',
     links: [
       {
@@ -125,7 +125,7 @@ const users: User[] = ref([
   },
   {
     name: 'Element',
-    avatar: 'https://api.iconify.design/noto:compass.svg',
+    avatar: 'https://api.iconify.design/noto-v1:man-farmer.svg',
     desc: '常用UI库',
     link: '',
     links: [
@@ -159,7 +159,7 @@ const users: User[] = ref([
   {
     name: '开发工具',
     avatar: 'https://api.iconify.design/noto:hammer-and-wrench.svg',
-    desc: '常用开发工具',
+    desc: '常用开发工具常用开发工具常用开发工具',
     link: '',
     links: [
       {
@@ -230,6 +230,21 @@ const users: User[] = ref([
         icon: 'https://raw.githubusercontent.com/chendj89/icons/main/Marie.png',
         link: 'https://www.yikm.net/',
       },
+      {
+        name: 'Yikm',
+        icon: 'https://raw.githubusercontent.com/chendj89/icons/main/Marie.png',
+        link: 'https://www.yikm.net/',
+      },
+      {
+        name: 'Yikm',
+        icon: 'https://raw.githubusercontent.com/chendj89/icons/main/Marie.png',
+        link: 'https://www.yikm.net/',
+      },
+      {
+        name: 'Yikm',
+        icon: 'https://raw.githubusercontent.com/chendj89/icons/main/Marie.png',
+        link: 'https://www.yikm.net/',
+      },
     ],
   },
 ]);
@@ -241,8 +256,8 @@ const go = (item) => {
 </script>
 
 <template>
-  <div class="card" v-for="user in users" :key="user.name">
-    <div class="card-content" @click="go(user)">
+  <button class="card" v-for="user in users" :key="user.name">
+    <div class="card-content" :class="{ dbl: user.link }" @dblclick="go(user)">
       <img class="card-avatar" :src="user.avatar" alt="" />
       <div class="card-user">
         <h3 class="card-user-name">{{ user.name }}</h3>
@@ -252,33 +267,57 @@ const go = (item) => {
       </div>
     </div>
     <div class="card-links">
-      <div
-        v-for="item in user.links"
-        :key="item.name"
-        @click="go(item)"
-        class="card-links-item"
-        :class="{ 'card-links-items': user.links.length > 12 }"
-      >
-        <img class="card-links-icon" :src="item.icon" :title="item.name" />
+      <div class="card-links-swiper">
+        <div
+          v-for="item in user.links"
+          :key="item.name"
+          @click="go(item)"
+          class="card-links-item"
+        >
+          <img class="card-links-icon" :src="item.icon" :title="item.name" />
+        </div>
       </div>
+      <img
+        class="card-links-left"
+        src="https://api.iconify.design/ion:ios-arrow-dropleft-circle.svg?color=%2341b883"
+        v-if="user.links.length > 6"
+      />
+      <img
+        class="card-links-right"
+        v-if="user.links.length > 6"
+        src="https://api.iconify.design/ion:ios-arrow-dropright-circle.svg?color=%2341b883"
+      />
     </div>
-  </div>
+  </button>
 </template>
 
 <style lang="scss" scoped>
-$width: 308px;
+$width: 290px;
 $space: 10px;
 $img: 48px;
 .card {
-  display: block;
-  padding: $space * 1.2;
+  display: inline-block;
+  margin: 0 $space;
   width: $width;
   border-radius: 4px;
   background: #f9f9f9;
   margin-bottom: $space;
+  outline: none;
+  border: none;
+  &:hover {
+    // background: #1d49aa;
+  }
+  &:focus {
+    box-shadow: 0 0 0 4px #cbd6ee;
+  }
   &-content {
     display: flex;
     justify-content: space-between;
+    padding: $space * 1.2;
+    padding-bottom: 0;
+    &.dbl {
+      cursor: pointer;
+    }
   }
   &-avatar {
     display: block;
@@ -307,9 +346,32 @@ $img: 48px;
     }
   }
   &-links {
+    position: relative;
     text-align: left;
-    padding-top: $space;
-    height: 40px;
+    padding: $space * 1.2;
+    overflow: hidden;
+    &-swiper {
+      white-space: pre;
+      transition: all 1s;
+    }
+    &-left,
+    &-right {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      width: $img * 0.45;
+      transform: translateY(-50%);
+      cursor: pointer;
+      opacity: 0.7;
+      transition: all 0.5s;
+      &:hover {
+        opacity: 1;
+      }
+    }
+    &-right {
+      left: auto;
+      right: 0;
+    }
     &-item {
       display: inline-flex;
       margin-right: $space;
@@ -330,18 +392,6 @@ $img: 48px;
     &-icon {
       width: $img * 0.5;
       height: $img * 0.5;
-    }
-    $size: 0.5;
-    &-items {
-      width: $img * $size;
-      height: $img * $size;
-      min-width: $img * $size;
-      min-height: $img * $size;
-      font-size: $img * $size;
-    }
-    &-items &-icon {
-      width: $img * $size * 0.75;
-      height: $img * $size * 0.75;
     }
   }
 }
