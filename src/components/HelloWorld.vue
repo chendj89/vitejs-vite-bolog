@@ -136,7 +136,7 @@ const users: User[] = ref([
       },
       {
         name: 'ElementPlus',
-        icon: 'https://api.iconify.design/ep:element-plus.svg',
+        icon: 'https://api.iconify.design/ep:element-plus.svg?color=%23409eff',
         link: 'https://element-plus.gitee.io/zh-CN/',
       },
       {
@@ -230,21 +230,6 @@ const users: User[] = ref([
         icon: 'https://raw.githubusercontent.com/chendj89/icons/main/Marie.png',
         link: 'https://www.yikm.net/',
       },
-      {
-        name: 'Yikm',
-        icon: 'https://raw.githubusercontent.com/chendj89/icons/main/Marie.png',
-        link: 'https://www.yikm.net/',
-      },
-      {
-        name: 'Yikm',
-        icon: 'https://raw.githubusercontent.com/chendj89/icons/main/Marie.png',
-        link: 'https://www.yikm.net/',
-      },
-      {
-        name: 'Yikm',
-        icon: 'https://raw.githubusercontent.com/chendj89/icons/main/Marie.png',
-        link: 'https://www.yikm.net/',
-      },
     ],
   },
 ]);
@@ -267,26 +252,14 @@ const go = (item) => {
       </div>
     </div>
     <div class="card-links">
-      <div class="card-links-swiper">
-        <div
-          v-for="item in user.links"
-          :key="item.name"
-          @click="go(item)"
-          class="card-links-item"
-        >
-          <img class="card-links-icon" :src="item.icon" :title="item.name" />
-        </div>
+      <div
+        v-for="item in user.links"
+        :key="item.name"
+        @click="go(item)"
+        class="card-links-item"
+      >
+        <img class="card-links-icon" :src="item.icon" :title="item.name" />
       </div>
-      <img
-        class="card-links-left"
-        src="https://api.iconify.design/ion:ios-arrow-dropleft-circle.svg?color=%2341b883"
-        v-if="user.links.length > 6"
-      />
-      <img
-        class="card-links-right"
-        v-if="user.links.length > 6"
-        src="https://api.iconify.design/ion:ios-arrow-dropright-circle.svg?color=%2341b883"
-      />
     </div>
   </button>
 </template>
@@ -298,6 +271,7 @@ $img: 48px;
 .card {
   display: inline-block;
   margin: 0 $space;
+  padding: 0;
   width: $width;
   border-radius: 4px;
   background: #f9f9f9;
