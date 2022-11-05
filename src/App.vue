@@ -2,45 +2,13 @@
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
 import HelloWorld from './components/HelloWorld.vue';
-import FileFloder from './components/FileFloder.tsx';
 const imgClick = () => {
   console.log('img');
 };
 </script>
 
 <template>
-  <HelloWorld msg="Vite + Vue" />
-  <FileFloder>
-    <img
-      @click="imgClick"
-      src="https://api.iconify.design/bi:1-square-fill.svg?color=%23999999"
-      alt=""
-    />
-    <img
-      src="https://api.iconify.design/bi:2-square-fill.svg?color=%23999999"
-      alt=""
-    />
-    <img
-      src="https://api.iconify.design/bi:3-square-fill.svg?color=%23999999"
-      alt=""
-    />
-    <img
-      src="https://api.iconify.design/bi:3-square-fill.svg?color=%23999999"
-      alt=""
-    />
-    <img
-      src="https://api.iconify.design/bi:3-square-fill.svg?color=%23999999"
-      alt=""
-    />
-    <img
-      src="https://api.iconify.design/bi:3-square-fill.svg?color=%23999999"
-      alt=""
-    />
-    <img
-      src="https://api.iconify.design/bi:3-square-fill.svg?color=%23999999"
-      alt=""
-    />
-  </FileFloder>
+  <HelloWorld />
 </template>
 
 <style lang="scss">
@@ -48,6 +16,24 @@ const imgClick = () => {
   width: 36px;
   height: 36px;
   user-select: none;
+  background-color: #e5e5e5;
+  border-radius: 4px;
+  overflow: hidden;
+  &.active {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+  }
+  &-title {
+    display: flex;
+    height: 36px;
+    background: #ff5c00;
+    color: #fff;
+    align-items: center;
+    justify-content: center;
+  }
   &-container {
     width: 180px;
     height: 180px;
@@ -57,8 +43,14 @@ const imgClick = () => {
     transform-origin: left top;
     transform: scale(0.2);
     border-radius: 16px;
-    background-color: #e5e5e5;
+    grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
+  }
+  &.active &-container {
+    width: 100%;
+    height: 100%;
+    grid-template-columns: repeat(6, 1fr);
+    transform: none;
   }
   &-drag {
     display: inline-block;
@@ -68,7 +60,6 @@ const imgClick = () => {
     img {
       display: block;
       width: 100%;
-      height: 100%;
     }
   }
 }

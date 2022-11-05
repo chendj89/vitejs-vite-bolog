@@ -5,9 +5,25 @@ import {
   reactive,
   watchEffect,
   withModifiers,
+  PropType,
 } from 'vue';
 
+type List = {
+  name: string;
+  icon: string;
+  link: string;
+};
 export default defineComponent({
+  props: {
+    list: {
+      type: Object as PropType<List[]>,
+      required: true,
+    },
+    title: {
+      type: String,
+      required: true,
+    },
+  },
   setup(props, { slots }) {
     const canClick = ref(false);
     let links = new Array(7).fill({
@@ -19,6 +35,9 @@ export default defineComponent({
     const imgClick = (item: any) => {
       canClick.value = false;
       console.log('img');
+      if (item.link) {
+        window.open(item.link);
+      }
     };
     // 文件夹点击
     const folderClick = () => {
@@ -27,25 +46,46 @@ export default defineComponent({
       }
       console.log('folder');
     };
+    // 标题点击
+    const titleClick = () => {
+      console.log('000');
+      canClick.value = false;
+    };
     const style = reactive({
       folder: 'fileFloder',
+      folderActive: '',
       container: `grid-template-columns:repeat(3, 1fr)`,
     });
     watchEffect(() => {
       if (canClick.value) {
+        // 展开状态
         style.folder = 'width: 108px;';
         style.container = `grid-template-columns:repeat(6, 1fr);width: 540px`;
+        style.folderActive = 'fileFloder active';
       } else {
+        // 默认状态
         style.folder = 'cursor: pointer;';
         style.container = `grid-template-columns:repeat(3, 1fr);`;
+        style.folderActive = 'fileFloder';
       }
     });
     return () => {
       let defaultEles = slots.default ? slots.default() : [];
       return (
-        <div class="fileFloder" style={style.folder} onClick={folderClick}>
-          <div class="fileFloder-container" style={style.container}>
-            {links.map((ele) => {
+        <div class={style.folderActive} onClick={folderClick}>
+          {canClick.value ? (
+            <div
+              class="fileFloder-title"
+              onClick={withModifiers(
+                () => canClick.value && titleClick(),
+                canClick.value ? ['stop', 'capture'] : []
+              )}
+            >
+              {props.title}
+            </div>
+          ) : null}
+          <div class="fileFloder-container">
+            {props.list.map((ele) => {
               return h('div', { class: 'fileFloder-drag' }, [
                 h(
                   'img',

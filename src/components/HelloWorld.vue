@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref, withDefaults } from 'vue';
+import FileFloder from './FileFloder.tsx';
 interface User {
   name: string;
   avatar: string;
@@ -199,6 +200,7 @@ const users: User[] = ref([
     avatar: 'https://api.iconify.design/fluent-emoji-flat:slot-machine.svg',
     desc: '没有被分类的',
     link: '',
+    group: true,
     links: [
       {
         name: '掘金',
@@ -252,7 +254,13 @@ const go = (item) => {
       </div>
     </div>
     <div class="card-links">
+      <FileFloder
+        v-if="user.group"
+        :list="user.links"
+        :title="user.name"
+      ></FileFloder>
       <div
+        v-else
         v-for="item in user.links"
         :key="item.name"
         @click="go(item)"
@@ -269,6 +277,7 @@ $width: 290px;
 $space: 10px;
 $img: 48px;
 .card {
+  position: relative;
   display: inline-block;
   margin: 0 $space;
   padding: 0;
@@ -282,7 +291,7 @@ $img: 48px;
     // background: #1d49aa;
   }
   &:focus {
-    box-shadow: 0 0 0 4px #cbd6ee;
+    // box-shadow: 0 0 0 4px #cbd6ee;
   }
   &-content {
     display: flex;
@@ -320,32 +329,10 @@ $img: 48px;
     }
   }
   &-links {
-    position: relative;
     text-align: left;
     padding: $space * 1.2;
     overflow: hidden;
-    &-swiper {
-      white-space: pre;
-      transition: all 1s;
-    }
-    &-left,
-    &-right {
-      position: absolute;
-      left: 0;
-      top: 50%;
-      width: $img * 0.45;
-      transform: translateY(-50%);
-      cursor: pointer;
-      opacity: 0.7;
-      transition: all 0.5s;
-      &:hover {
-        opacity: 1;
-      }
-    }
-    &-right {
-      left: auto;
-      right: 0;
-    }
+    height: 60px;
     &-item {
       display: inline-flex;
       margin-right: $space;
