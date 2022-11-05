@@ -13,10 +13,11 @@ const imgClick = () => {
 
 <style lang="scss">
 .fileFloder {
+  display: inline-block;
   width: 36px;
   height: 36px;
   user-select: none;
-  background-color: #e5e5e5;
+  background-color: #fff;
   border-radius: 4px;
   overflow: hidden;
   &.active {
@@ -49,7 +50,7 @@ const imgClick = () => {
   &.active &-container {
     width: 100%;
     height: 100%;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     transform: none;
   }
   &-drag {
@@ -59,7 +60,6 @@ const imgClick = () => {
     height: 100%;
     img {
       display: block;
-      width: 100%;
     }
   }
 }

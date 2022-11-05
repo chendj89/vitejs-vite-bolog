@@ -60,7 +60,7 @@ export default defineComponent({
       if (canClick.value) {
         // 展开状态
         style.folder = 'width: 108px;';
-        style.container = `grid-template-columns:repeat(6, 1fr);width: 540px`;
+        style.container = `grid-template-columns:repeat(5, 1fr);width: 540px`;
         style.folderActive = 'fileFloder active';
       } else {
         // 默认状态
@@ -72,7 +72,11 @@ export default defineComponent({
     return () => {
       let defaultEles = slots.default ? slots.default() : [];
       return (
-        <div class={style.folderActive} onClick={folderClick}>
+        <div
+          class={style.folderActive}
+          onClick={folderClick}
+          title={props.title}
+        >
           {canClick.value ? (
             <div
               class="fileFloder-title"
@@ -88,15 +92,15 @@ export default defineComponent({
             {props.list.map((ele) => {
               return h('div', { class: 'fileFloder-drag' }, [
                 h(
-                  'img',
+                  'div',
                   {
                     onClick: withModifiers(
                       () => canClick.value && imgClick(ele),
                       canClick.value ? ['stop', 'capture'] : []
                     ),
-                    src: ele.icon,
+                    class: 'card-links-item',
                   },
-                  {}
+                  [h('img', { src: ele.icon, class: 'card-links-icon' }, {})]
                 ),
               ]);
             })}

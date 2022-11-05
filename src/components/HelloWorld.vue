@@ -165,7 +165,7 @@ const users: User[] = ref([
     links: [
       {
         name: '翻译',
-        icon: 'https://api.iconify.design/dashicons:translation.svg',
+        icon: 'https://api.iconify.design/dashicons:translation.svg?color=%23329672',
         link: 'https://fanyi.youdao.com/',
       },
       {
@@ -214,7 +214,7 @@ const users: User[] = ref([
       },
       {
         name: '知乎',
-        icon: 'https://api.iconify.design/ant-design:zhihu-outlined.svg',
+        icon: 'https://api.iconify.design/ant-design:zhihu-outlined.svg?color=%23056de8',
         link: 'https://www.zhihu.com/hot',
       },
       {
@@ -228,9 +228,16 @@ const users: User[] = ref([
         link: 'https://emojixd.com/',
       },
       {
-        name: 'Yikm',
-        icon: 'https://raw.githubusercontent.com/chendj89/icons/main/Marie.png',
-        link: 'https://www.yikm.net/',
+        name: '游戏',
+        icon: '',
+        link: '',
+        group: [
+          {
+            name: 'Yikm',
+            icon: 'https://raw.githubusercontent.com/chendj89/icons/main/Marie.png',
+            link: 'https://www.yikm.net/',
+          },
+        ],
       },
     ],
   },
@@ -254,25 +261,21 @@ const go = (item) => {
       </div>
     </div>
     <div class="card-links">
-      <FileFloder
-        v-if="user.group"
-        :list="user.links"
-        :title="user.name"
-      ></FileFloder>
-      <div
-        v-else
-        v-for="item in user.links"
-        :key="item.name"
-        @click="go(item)"
-        class="card-links-item"
-      >
-        <img class="card-links-icon" :src="item.icon" :title="item.name" />
-      </div>
+      <template v-for="item in user.links">
+        <FileFloder
+          v-if="item.group"
+          :list="item.group"
+          :title="item.name"
+        ></FileFloder>
+        <div v-else :key="item.name" @click="go(item)" class="card-links-item">
+          <img class="card-links-icon" :src="item.icon" :title="item.name" />
+        </div>
+      </template>
     </div>
   </button>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
 $width: 290px;
 $space: 10px;
 $img: 48px;
@@ -329,10 +332,11 @@ $img: 48px;
     }
   }
   &-links {
+    display: flex;
     text-align: left;
     padding: $space * 1.2;
     overflow: hidden;
-    height: 60px;
+    height: 66px;
     &-item {
       display: inline-flex;
       margin-right: $space;
