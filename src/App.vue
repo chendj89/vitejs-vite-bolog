@@ -15,20 +15,25 @@ const imgClick = () => {
 .fileFloder {
   display: inline-block;
   width: 36px;
+  min-width: 36px;
   height: 36px;
   user-select: none;
-  background-color: #fff;
+  background: #fff;
   border-radius: 4px;
   overflow: hidden;
+  cursor: pointer;
   &.active {
     position: absolute;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
+    background: #f9f9f9;
+    cursor: default;
+    z-index: 1;
   }
   &-title {
-    display: flex;
+    display: none;
     height: 36px;
     background: #ff5c00;
     color: #fff;
@@ -39,8 +44,8 @@ const imgClick = () => {
     width: 180px;
     height: 180px;
     display: inline-grid;
-    padding: 16px;
-    grid-gap: 16px;
+    padding: 10px;
+    grid-gap: 10px;
     transform-origin: left top;
     transform: scale(0.2);
     border-radius: 16px;
@@ -50,7 +55,7 @@ const imgClick = () => {
   &.active &-container {
     width: 100%;
     height: 100%;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(6, 1fr);
     transform: none;
   }
   &-drag {

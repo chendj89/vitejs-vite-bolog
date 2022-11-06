@@ -43,6 +43,8 @@ export default defineComponent({
     const folderClick = () => {
       if (!canClick.value) {
         canClick.value = true;
+      } else {
+        canClick.value = false;
       }
       console.log('folder');
     };
@@ -75,7 +77,7 @@ export default defineComponent({
         <div
           class={style.folderActive}
           onClick={folderClick}
-          title={props.title}
+          title={canClick.value ? undefined : props.title}
         >
           {canClick.value ? (
             <div
@@ -99,8 +101,18 @@ export default defineComponent({
                       canClick.value ? ['stop', 'capture'] : []
                     ),
                     class: 'card-links-item',
+                    title: ele.name,
                   },
-                  [h('img', { src: ele.icon, class: 'card-links-icon' }, {})]
+                  [
+                    h(
+                      'img',
+                      {
+                        src: ele.icon,
+                        class: 'card-links-icon',
+                      },
+                      {}
+                    ),
+                  ]
                 ),
               ]);
             })}

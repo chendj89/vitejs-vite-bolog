@@ -8,6 +8,24 @@ interface User {
 }
 const users: User[] = ref([
   {
+    name: '飞翔的鱼',
+    desc: '',
+    avatar: 'https://avatars.githubusercontent.com/u/105529957?v=4',
+    link: 'https://github.com/chendj89',
+    links: [
+      {
+        name: 'github',
+        icon: 'https://api.iconify.design/mdi:github.svg',
+        link: 'https://github.com/chendj89',
+      },
+      {
+        name: '飞行的鱼',
+        icon: 'https://chendj89.github.io/chendj89/assets/xiaochou.jpg',
+        link: 'https://chendj89.github.io/chendj89/',
+      },
+    ],
+  },
+  {
     name: 'Evan You',
     avatar: 'https://avatars.githubusercontent.com/u/499550?v=4',
     desc: '一位独立软件开发者，也是开源 JavaScript 框架 Vue.js 的创造者',
@@ -70,6 +88,24 @@ const users: User[] = ref([
         name: 'unplugin-auto-import',
         icon: 'https://api.iconify.design/carbon:row-insert.svg',
         link: 'https://github.com/antfu/unplugin-auto-import',
+      },
+    ],
+  },
+  {
+    name: '阮一峰',
+    avatar: 'https://avatars.githubusercontent.com/u/905434?v=4',
+    desc: '互联网科技博主',
+    link: 'https://www.ruanyifeng.com/blog/',
+    links: [
+      {
+        name: 'github',
+        icon: 'https://api.iconify.design/mdi:github.svg',
+        link: 'https://github.com/ruanyf',
+      },
+      {
+        name: 'ECMAScript 6入门',
+        icon: 'https://api.iconify.design/logos:es6.svg?color=%23ff5000',
+        link: 'https://es6.ruanyifeng.com/',
       },
     ],
   },
@@ -146,11 +182,6 @@ const users: User[] = ref([
         link: 'https://echarts.apache.org/zh/index.html',
       },
       {
-        name: 'Greensock',
-        icon: 'https://api.iconify.design/fluent-emoji:socks.svg',
-        link: 'https://greensock.com/',
-      },
-      {
         name: 'Bootstrap',
         icon: 'https://cdn.jsdelivr.net/npm/@bootcss/www.bootcss.com@0.0.63/dist/ico/favicon.ico',
         link: 'https://www.bootcss.com/',
@@ -172,11 +203,6 @@ const users: User[] = ref([
         name: '正则',
         icon: 'https://regex101.com/static/assets/icon-32.png',
         link: 'https://regex101.com/',
-      },
-      {
-        name: 'Codepen',
-        icon: 'https://api.iconify.design/logos:codepen-icon.svg',
-        link: 'https://codepen.io/',
       },
       {
         name: 'stackblitz',
@@ -223,9 +249,16 @@ const users: User[] = ref([
         link: 'https://www.bilibili.com/',
       },
       {
-        name: 'Emoji',
-        icon: 'https://emojixd.com/favicon.ico',
-        link: 'https://emojixd.com/',
+        name: '购物',
+        icon: '',
+        link: '',
+        group: [
+          {
+            name: '淘宝',
+            icon: 'https://api.iconify.design/ant-design:taobao-outlined.svg?color=%23ff5000',
+            link: 'https://www.taobao.com/',
+          },
+        ],
       },
       {
         name: '游戏',
@@ -237,7 +270,44 @@ const users: User[] = ref([
             icon: 'https://raw.githubusercontent.com/chendj89/icons/main/Marie.png',
             link: 'https://www.yikm.net/',
           },
+          {
+            name: 'Emoji',
+            icon: 'https://emojixd.com/favicon.ico',
+            link: 'https://emojixd.com/',
+          },
         ],
+      },
+    ],
+  },
+  {
+    name: 'codepen',
+    desc: '一个完全免费的前端代码托管服务，可以用来制作页面的网站。',
+    avatar: 'https://api.iconify.design/logos:codepen-icon.svg',
+    link: 'https://codepen.io/',
+    links: [
+      {
+        name: 'greensock',
+        icon: 'https://avatars.githubusercontent.com/u/2386673?s=200&v=4',
+        link: 'https://codepen.io/GreenSock',
+      },
+      {
+        name: 'chrisgannon',
+        icon: 'https://assets.codepen.io/35984/internal/avatars/users/default.png?fit=crop&format=auto&height=36&width=36',
+        link: 'https://codepen.io/chrisgannon',
+      },
+    ],
+  },
+  {
+    name: '下载',
+    desc: '',
+    avatar:
+      'https://api.iconify.design/icon-park-twotone:download-web.svg?color=%23ff5000',
+    link: '',
+    links: [
+      {
+        name: 'gitclone',
+        icon: 'https://api.iconify.design/prime:clone.svg?color=%23ff5000',
+        link: 'https://www.gitclone.com/',
       },
     ],
   },
@@ -267,8 +337,14 @@ const go = (item) => {
           :list="item.group"
           :title="item.name"
         ></FileFloder>
-        <div v-else :key="item.name" @click="go(item)" class="card-links-item">
-          <img class="card-links-icon" :src="item.icon" :title="item.name" />
+        <div
+          v-else
+          :key="item.name"
+          @click="go(item)"
+          class="card-links-item"
+          :title="item.name"
+        >
+          <img class="card-links-icon" :src="item.icon" />
         </div>
       </template>
     </div>
@@ -337,9 +413,14 @@ $img: 48px;
     padding: $space * 1.2;
     overflow: hidden;
     height: 66px;
+    & > div {
+      margin-right: 10px;
+      &:last-child {
+        margin-right: 0;
+      }
+    }
     &-item {
       display: inline-flex;
-      margin-right: $space;
       align-items: center;
       justify-content: center;
       background-color: #e5e5e5;
