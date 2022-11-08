@@ -2,6 +2,7 @@
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
 import HelloWorld from './components/HelloWorld.vue';
+import VpImg from './components/VpImg';
 const imgClick = () => {
   console.log('img');
 };
@@ -18,6 +19,7 @@ const imgClick = () => {
   >
     按钮
   </div>
+  <VpImg />
 </template>
 
 <style lang="scss">
