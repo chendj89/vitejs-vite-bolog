@@ -305,6 +305,11 @@ const users: User[] = ref([
     link: '',
     links: [
       {
+        name: '百度',
+        icon: 'https://api.iconify.design/ri:baidu-fill.svg?color=%232932e1',
+        link: 'https://www.baidu.com/',
+      },
+      {
         name: 'gitclone',
         icon: 'https://api.iconify.design/prime:clone.svg?color=%23ff5000',
         link: 'https://www.gitclone.com/',
