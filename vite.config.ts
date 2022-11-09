@@ -9,6 +9,16 @@ export default defineConfig({
     vue({
       include: [/\.vue$/, /\.md$/],
     }),
-    Markdown(),
+    Markdown({
+      markdownItOptions: {
+        html: true,
+        linkify: true,
+        typographer: true,
+      },
+      markdownItSetup(md) {
+        md.use(require('markdown-it-anchor'));
+        md.use(require('markdown-it-prism'));
+      },
+    }),
   ],
 });

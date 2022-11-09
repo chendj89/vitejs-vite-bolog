@@ -3,6 +3,7 @@
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
 import HelloWorld from './components/HelloWorld.vue';
 import VpImg from './components/VpImg';
+import Heromd from "./md/index.md";
 const imgClick = () => {
   console.log('img');
 };
@@ -20,6 +21,7 @@ const imgClick = () => {
     按钮
   </div>
   <VpImg />
+  <Heromd />
 </template>
 
 <style lang="scss">
