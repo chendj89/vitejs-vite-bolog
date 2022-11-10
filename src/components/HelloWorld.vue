@@ -169,7 +169,7 @@ const users: User[] = ref([
       {
         name: 'Element',
         icon: 'https://api.iconify.design/logos:element.svg',
-        link: 'ttps://element.eleme.cn/#/zh-CN',
+        link: 'https://element.eleme.cn/#/zh-CN',
       },
       {
         name: 'ElementPlus',
