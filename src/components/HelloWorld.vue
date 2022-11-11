@@ -282,8 +282,8 @@ const users: User[] = ref([
           },
           {
             name: 'Emoji',
-            icon: 'https://emojixd.com/favicon.ico',
-            link: 'https://emojixd.com/',
+            icon: 'https://www.emojiall.com/apple-touch-icon.png',
+            link: 'https://www.emojiall.com/en',
           },
         ],
       },
