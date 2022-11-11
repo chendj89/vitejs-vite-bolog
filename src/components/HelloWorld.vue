@@ -187,6 +187,11 @@ const users: User[] = ref([
         link: 'https://echarts.apache.org/zh/index.html',
       },
       {
+        name: 'JQuery',
+        icon: 'https://api.iconify.design/mdi:jquery.svg?color=%230b8ff4',
+        link: 'https://jquery.cuishifeng.cn/',
+      },
+      {
         name: 'Bootstrap',
         icon: 'https://cdn.jsdelivr.net/npm/@bootcss/www.bootcss.com@0.0.63/dist/ico/favicon.ico',
         link: 'https://www.bootcss.com/',
