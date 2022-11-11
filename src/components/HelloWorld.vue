@@ -107,6 +107,11 @@ const users: User[] = ref([
         icon: 'https://api.iconify.design/logos:es6.svg?color=%23ff5000',
         link: 'https://es6.ruanyifeng.com/',
       },
+      {
+        name: '科技爱好者周刊',
+        icon: 'https://api.iconify.design/fluent-mdl2:blog.svg?color=%230b8ff4',
+        link: 'https://github.com/ruanyf/weekly',
+      },
     ],
   },
   {
