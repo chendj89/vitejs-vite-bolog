@@ -229,6 +229,11 @@ const users: User[] = ref([
         icon: 'https://www.denojs.cn/img/favicon.ico',
         link: 'https://www.denojs.cn/',
       },
+      {
+        name: 'hoppscotch',
+        icon: 'https://hoppscotch.io/icon.png',
+        link: 'https://hoppscotch.io/',
+      },
     ],
   },
   {
