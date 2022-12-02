@@ -336,6 +336,20 @@ const users: User[] = ref([
       },
     ],
   },
+  {
+    name: '文档',
+    desc: '',
+    avatar:
+      'https://api.iconify.design/icon-park-twotone:download-web.svg?color=%23ff5000',
+    link: '',
+    links: [
+      {
+        name: '修改github',
+        icon: 'https://static.segmentfault.com/main_site_next/2f0db9a9/touch-icon.png',
+        link: 'https://segmentfault.com/a/1190000015144126',
+      },
+    ],
+  },
 ]);
 const go = (item) => {
   if (item.link) {
