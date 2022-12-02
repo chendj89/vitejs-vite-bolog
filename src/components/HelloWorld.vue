@@ -305,6 +305,11 @@ const users: User[] = ref([
         icon: 'https://assets.codepen.io/35984/internal/avatars/users/default.png?fit=crop&format=auto&height=36&width=36',
         link: 'https://codepen.io/chrisgannon',
       },
+      {
+        name: 'Aaron Iker',
+        icon: 'https://assets.codepen.io/165585/internal/avatars/users/default.png?fit=crop&format=auto&height=512&version=1610077368&width=512',
+        link: 'https://codepen.io/aaroniker/',
+      },
     ],
   },
   {
